@@ -28,7 +28,9 @@
 */
 
 // Code Here 
-
+function first(arr,cb){
+  cb(arr[0])
+}
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -48,7 +50,9 @@ first(names, function(firstName){
 */
 
 //Code Here
-
+function last(arr,cb) {
+  cb(arr[arr.length-1])
+}
 // Do not edit the code below.
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -66,7 +70,11 @@ last(names, function(lastName){
 */
 
 //Code Here
-
+num1 = 1
+num2 = 2
+function multiply(num1,num2,cb) {
+  return cb(num1 * num2)
+}
 // Do not edit the code below.
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
@@ -85,15 +93,21 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
-
-// Do not edit the code below.
-contains(names, 'Colt', function(result){
-  if(result === true){
-    console.log('Colt is in the array');
-  } else {
-    console.log('Colt is not in the array');
+function contains(array, thom, cb){
+  if(array.includes(thom)){
+    cb(true)
+  }else{
+    cb(false)
   }
-});
+}
+// Do not edit the code below.
+// contains(names, 'Colt', function(result){
+//   if(result === true){
+//     console.log('Colt is in the array');
+//   } else {
+//     console.log('Colt is not in the array');
+//   }
+// });
 // Do not edit the code above.
 
 
@@ -106,6 +120,10 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq(arr,cb){
+  var wee=arr.filter(function(cur,index,arr){return arr.indexOf(cur)===index})
+  cb(wee)
+}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -123,7 +141,11 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
-
+function each(awway,cb){
+  for(i=0;i<awway.length;i++){
+    cb(awway[i],i)
+  }
+}
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -140,7 +162,13 @@ each(names, function(item, indice){
 */
 
 // Code here
-
+function getUserById(aww,id,cb){
+  for(i=0;i<aww.length;i++){
+    if(id===aww[i].id){
+      return cb(aww[i])
+    }
+  }
+}
 // Do not edit the code below.
 var users = [
   {
